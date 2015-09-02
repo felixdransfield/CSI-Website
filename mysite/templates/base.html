@@ -1,0 +1,73 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700,700italic,600italic,300italic' rel='stylesheet' type='text/css'>
+        {% render_block "css" %}
+        {% addtoblock "css" %}
+            <link href="/static/default.css" rel="stylesheet" media="screen" type="text/css">
+        {% endaddtoblock %}
+    </head>
+    <body>
+        {% cms_toolbar %}
+        <header>
+            <div class ="banner wrapper">
+                <div class="container">
+                    <div class="site-title">CSI labaratory</div>
+                    <div class ="breadcrumbs">
+                        <a href="http://www.kcl.ac.uk/ioppn/index.aspx">Institute of Psychiatry, Psychology &amp; Neuroscience</a> / <a href="http://www.kcl.ac.uk/ioppn/depts/ps/index.aspx">Department of Psychosis Studies</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="header-menus" id="header-menus">
+            <div class="header-menu wrapper">
+
+                    <div class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Project name</a>
+                        </div>
+                        <div class="container">
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                {% show_menu 0 100 0 1 "menu.html" %}
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+
+            </div>
+        </nav>
+
+        <div class="container">
+            <br>
+            {% block content %}{% endblock content %}
+        </div>
+        <footer class="wrapper">
+            <div class="container">
+                {% static_placeholder 'footer' %}
+                {% load named_cms_menu_tags %}
+                <div id="footer-menu-left">
+                    {% show_menu 0 100 0 1 "footer-menu.html" %}
+                </div>
+                <div id="footer-menu-right">
+                    {% show_named_menu "footer" %}
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        {% render_block "js" %}
+    </body>
+</html>

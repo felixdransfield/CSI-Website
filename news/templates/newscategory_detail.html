@@ -1,0 +1,49 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags sekizai_tags staticfiles thumbnail %}
+
+{% block title %}{{ category.name }}{% endblock title %}
+
+{% block body_classes %}{{ block.super }} category-detail{% endblock %}
+
+{% block content %}
+  {% addtoblock "css" %}<link rel="stylesheet" href="{% static "news/css/styles.css" %}">{% endaddtoblock %}
+
+    <div class="staff-detail">
+        <h1>{% render_model category "name" %}</h1>
+        <div class="divider"></div>
+        <br>
+
+        <div class="staff-bio">{% render_placeholder category.info %}</div>
+
+        <br><br>
+
+        <h1> Current Studies</h1>
+        <div class="divider"></div>
+        <br>
+
+        <ul class="news-items">
+
+
+{% for item in items %}
+            <li class="news-item">
+
+                <a href="{{ item.slug }}"><span class="pub-title">{{ item.title }}</span></a><br>
+                    {{ item.full_title }}
+                    <br>
+                Started: {{ item.start_date }}
+                <br>
+
+
+                {% if item.funding %}
+                    Funded by {{ item.funding }}
+                {% endif %}
+
+
+
+{% endfor %}
+            </li>
+</ul>
+
+    </div>
+
+{% endblock content %}

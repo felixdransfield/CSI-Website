@@ -1,0 +1,50 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags sekizai_tags staticfiles thumbnail %}
+
+{% block title %}{{ staff.full_name }}{% endblock title %}
+
+{% block body_classes %}{{ block.super }} staffmember-detail{% endblock %}
+
+{% block content %}
+  {% addtoblock "css" %}<link rel="stylesheet" href="{% static "staff/css/styles.css" %}">{% endaddtoblock %}
+  <div class="body-sidebar">
+    <div class="staff-detail">
+      {% thumbnail staff.photo '272x272' crop subject_location=staff.photo.subject_location as photo %}
+      <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ staff.full_name }}">
+    </div>
+  </div>
+  <div class="body-content">
+    <div class="staff-detail">
+      <h1 class="name">{% render_model staff "full_name" %}</h1>
+      <div class="title">{{ staff.title}}</div>
+      <div class="staff-bio">{% render_placeholder staff.bio %}</div>
+    </div>
+      <div class="divider"></div>
+
+       {% if staff.clippings.all %}
+      <div class="staff-detail">
+      <h1>Publications</h1>
+      <ul class="clippings">{% for clipping in staff.clippings.all %}
+        <li>
+               <div class="downloadable">
+                       <a href="{{ clipping.get_absolute_url }}"/>
+                    <span class="pub-title">{{ clipping.title }}</span>
+                   <br>
+                    <span class="pub-source">{{ clipping.source }}</span></a>
+                    <br><br>
+                   <div class="meta">{{ clipping.get_type }}</div>
+                </div>
+
+            </li>
+{% endfor %}
+      </ul>
+    </div>
+
+        <div class="divider"></div>
+      {% endif %}
+    <div class="staff-detail">
+      <h1>Contact Details</h1>
+        <div class="staff-bio">{% render_placeholder staff.contact %}</div>
+        </div>
+  </div>
+{% endblock content %}

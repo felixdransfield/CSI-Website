@@ -1,0 +1,38 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags sekizai_tags staticfiles thumbnail %}
+
+{% block title %}Publications{% endblock title %}
+
+{% block body_classes %}{{ block.super }} Publications{% endblock %}
+
+{% block content %}
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static "staff/css/styles.css" %}">{% endaddtoblock %}
+<h1>Publications</h1>
+<div class="divider"></div>
+<br>
+<div class="staff-detail">
+<ul class="clippings">
+  {% for clipping in publications %}
+
+
+        <li>
+               <div class="downloadable">
+                   <a href="/about-lab/people/{{ clipping.staff.slug }}"><span class="pub-staff">{{ clipping.staff }}</span>
+                       ({{ clipping.pub_date }})
+                   <br>
+                       <a href="{{ clipping.get_absolute_url }}"/>
+                    <span class="pub-title">{{ clipping.title }}</span>
+                   <br>
+                    <span class="pub-source">{{ clipping.source }}</span></a>
+                    <br><br>
+                   <div class="meta">{{ clipping.get_type }}</div>
+                </div>
+
+            </li>
+
+
+
+{% endfor %}
+</ul>
+</div>
+{% endblock content %}

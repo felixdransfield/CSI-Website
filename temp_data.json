@@ -1,0 +1,1 @@
+[{"fields": {"label": "PhD Student"}, "model": "staff.seniority", "pk": 1}, {"fields": {"label": "Post Doctorate"}, "model": "staff.seniority", "pk": 2}, {"fields": {"label": "Research Assistant"}, "model": "staff.seniority", "pk": 3}]

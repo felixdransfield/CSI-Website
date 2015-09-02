@@ -1,0 +1,59 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags sekizai_tags staticfiles thumbnail %}
+
+{% block title %}Staff{% endblock title %}
+<p>jeojdewo</p>
+{% block body_classes %}{{ block.super }} staffmember-list{% endblock %}
+
+{% block content %}
+  {% addtoblock "css" %}<link rel="stylesheet" href="{% static "staff/css/styles.css" %}">{% endaddtoblock %}
+  {% static_placeholder "staff_content" %}
+<br>
+{% if people_title = True %}
+<h1>People</h1>
+{% else %}
+<h1>Alumni</h1>
+{% endif %}
+<div class="divider"></div>
+<br>
+  <ul class="staff-list">
+
+      {% for staff in academic_staff %}
+
+    {% thumbnail staff.photo '136x136' crop subject_location=staff.photo.subject_location as photo %}
+
+    <li>
+      <a href="{{ staff.get_absolute_url }}">
+        <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ staff.full_name }}">
+      </a>
+        <div class="people-info">
+          <a class="name" href="{{ staff.get_absolute_url }}">{{ staff.full_name }}</a>
+          <p class="title">{{ staff.title }}</p>
+
+        </div>
+    </li>
+
+
+    {% empty %}
+
+    {% for staff in object_list %}
+
+    {% thumbnail staff.photo '136x136' crop subject_location=staff.photo.subject_location as photo %}
+
+    <li>
+      <a href="{{ staff.get_absolute_url }}">
+        <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ staff.full_name }}">
+      </a>
+        <div class="people-info">
+          <a class="name" href="{{ staff.get_absolute_url }}">{{ staff.full_name }}</a>
+          <p class="title">{{ staff.title }}</p>
+
+        </div>
+    </li>
+
+
+    {% empty %}
+    <p>No staff yet, please add some!</p>
+    {% endfor %}
+</ul>
+{% endblock %}

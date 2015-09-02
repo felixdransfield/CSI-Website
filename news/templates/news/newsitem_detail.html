@@ -1,0 +1,40 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags sekizai_tags staticfiles thumbnail %}
+{% load url from future %}
+
+{% block body_classes %}{{ block.super }} newsitem-detail{% endblock %}
+
+
+
+{% block content %}
+  {% addtoblock "css" %}<link rel="stylesheet" href="{% static "news/css/styles.css" %}">{% endaddtoblock %}
+  <div class="content newsitem">
+    <h1>{% render_model object 'title' %}</h1>{% if object.full_title %}
+    <h3>{{ object.full_title }}</h3>{% endif %}
+      <div class="divider"></div>
+      <br>
+
+    <div class="body">
+      {% if object.key_image %}
+        {% thumbnail object.key_image "140x133" crop as thumb %}
+        <img class="key-thumb" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" title="{{ object.key_image_tooltip }}" alt="{{ object.key_image_tooltip }}">
+      {% endif %}
+      {% render_placeholder object.news_body %}
+    </div>
+
+
+      <br><br><br>
+      <p class="meta"><label>Started</label>: {{ object.start_date }}</p>
+      {% if item.funding %}
+      <p class="meta"><label>Funded by</label>: {{ object.funding }}</p>
+      {% endif %}
+
+    <div class="references">{% if object.contact and object.contact.offices.count > 0 %}
+
+      <p><label>Media Contact</label>: {{ object.contact.full_name }}, telephone: {{ object.contact.offices.all.0.telephone }}{% endif %}{% if object.categories.count %}
+
+      <p><label>People Involved</label>: {% for staff in related_staff.all %}{% if forloop.counter0 %}, {% endif %}<a{% if not staff.published %} class="unpublished"{% endif %} href="{% url 'staff:staffmember_detail' slug=staff.slug %}"{% if not staff.published %} title="This staff record is currently unpublished so will not be listed to the public."{% endif %}>{{ staff.full_name }}</a>{% endfor %}</p>{% endif %}
+    </div>
+
+  </div>
+{% endblock %}
