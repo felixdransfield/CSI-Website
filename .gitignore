@@ -1,6 +1,5 @@
 csi_env
 *pyc
-static
 local_settings.py
 *.DS_Store
 .idea/workspace.xml
