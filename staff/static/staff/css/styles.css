@@ -66,13 +66,13 @@
 	margin-bottom: 5px;
 }
 
-.staff-detail .clippings {
+.staff-detail .publications {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 }
 
-.staff-detail .clippings li {
+.staff-detail .publications li {
 	font-family: sans-serif;
 	font-size: 12px;
 	line-height: 1.3333em;
@@ -82,7 +82,7 @@
     border-radius: 5px;
 }
 
-.staff-detail .clippings .meta {
+.staff-detail .publications .meta {
 	color: #999;
 	font-style: italic;
 }

@@ -24,7 +24,7 @@ class NewsToolbar(CMSToolbar):
         # admin_menu.
         #
         position = admin_menu.get_alphabetical_insert_position(
-            _('News'),
+            _('Researcg'),
             SubMenu
         )
 

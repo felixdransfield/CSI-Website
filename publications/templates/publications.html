@@ -1,0 +1,38 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags sekizai_tags staticfiles thumbnail %}
+
+{% block title %}Publications{% endblock title %}
+
+{% block body_classes %}{{ block.super }} Publications{% endblock %}
+
+{% block content %}
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static "staff/css/styles.css" %}">{% endaddtoblock %}
+<h1>Publications</h1>
+<div class="divider"></div>
+<br>
+<div class="staff-detail">
+<ul class="publications">
+  {% for publication in publications %}
+
+
+        <li>
+               <div class="downloadable">
+                   <a href="/about-lab/people/{{ publication.staff.slug }}"><span class="pub-staff">{{ publication.staff }}</span>
+                       ({{ publication.pub_date }})
+                   <br>
+                       <a href="{{ publication.get_absolute_url }}"/>
+                    <span class="pub-title">{{ publication.title }}</span>
+                   <br>
+                    <span class="pub-source">{{ publication.source }}</span></a>
+                    <br><br>
+                   <div class="meta">{{ publication.get_type }}</div>
+                </div>
+
+            </li>
+
+
+
+{% endfor %}
+</ul>
+</div>
+{% endblock content %}

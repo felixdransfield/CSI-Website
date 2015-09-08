@@ -27,14 +27,11 @@ SECRET_KEY = '(m6os^b1my15#d7duavr9zck%=r7a@243ksv^glf8lp&126xra'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
-
 
 
 
@@ -81,29 +78,43 @@ STATICFILES_FINDERS = (
 )
 SITE_ID = 1
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader'
-)
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-    'django.core.context_processors.csrf',
-    'django.core.context_processors.tz',
-    'sekizai.context_processors.sekizai',
-    'django.core.context_processors.static',
-    'cms.context_processors.cms_settings'
-)
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'mysite', 'templates'),
-)
+TEMPLATES = [
+{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': os.path.join(BASE_DIR, 'mysite', 'templates'),
+
+    #'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors':
+            (
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+            'django.core.context_processors.i18n',
+            'django.core.context_processors.debug',
+            'django.core.context_processors.request',
+            'django.core.context_processors.media',
+            'django.core.context_processors.csrf',
+            'django.core.context_processors.tz',
+            'sekizai.context_processors.sekizai',
+            'django.core.context_processors.static',
+            'cms.context_processors.cms_settings'
+            ),
+        'loaders':
+            (
+            'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+        'django.template.loaders.eggs.Loader'
+            ),
+        'debug': True
+
+
+    }
+},
+]
+
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -145,19 +156,22 @@ INSTALLED_APPS = (
     'djangocms_picture',
     'djangocms_teaser',
     'djangocms_video',
+    'djangocms_forms',
     'reversion',
     'mysite',
     'staff',
-    'clippings',
+    'publications',
     'news',
-    'participation',
     'filer',
     'easy_thumbnails',
     'adminsortable',
     'easy_select2',
-
-
 )
+
+
+DJANGOCMS_FORMS_DEFAULT_TEMPLATE = 'djangocms_forms/form_template/default.html'
+
+
 
 LANGUAGES = (
     ## Customize this

@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class NewsApp(CMSApp):
-    name = _('News')
+    name = _('Research')
     urls = ['news.urls']
     app_name = 'news'
 

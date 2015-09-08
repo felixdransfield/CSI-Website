@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('categories', models.ManyToManyField(help_text='Please select one or more categories for this news item.', related_name='news_items', to='news.NewsCategory')),
                 ('key_image', filer.fields.image.FilerImageField(related_name='news_key_image', blank=True, to='filer.Image', help_text='Optional. Please supply an image, if one is desired. This will be resized automatically.', null=True)),
                 ('news_body', cms.models.fields.PlaceholderField(slotname=b'news_item_body', editable=False, to='cms.Placeholder', null=True)),
-                ('related_staff', models.ManyToManyField(related_name='news_items', to='staff.StaffMember', blank=True, help_text='Optional. Please choose zero or more staff related to this item. Selected staff will automatically get a Clipping added that references this news item.', null=True, verbose_name='related staff')),
+                ('related_staff', models.ManyToManyField(related_name='news_items', to='staff.StaffMember', blank=True, help_text='Optional. Please choose zero or more staff related to this item. Selected staff will automatically get a Publication added that references this news item.', null=True, verbose_name='related staff')),
             ],
             options={
                 'ordering': ['-news_date'],

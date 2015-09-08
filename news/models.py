@@ -185,7 +185,7 @@ class NewsItem(models.Model):
         blank=True,
         help_text=u'Optional. Please choose zero or more staff related to '
                   u'this item. Selected staff will automatically get a '
-                  u'Clipping added that references this news item.',
+                  u'Publication added that references this news item.',
         null=True,
         related_name='news_items',
         verbose_name=u'related staff',

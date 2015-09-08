@@ -13,7 +13,7 @@ from models import NewsArchivePluginModel, NewsCategory, NewsItem, RecentNewsPlu
 
 class RecentNewsPlugin(CMSPluginBase):
     model = RecentNewsPluginModel
-    name = u'Recent News'
+    name = u'Recent Research'
     render_template = "_recent_news_plugin.html"
     text_enabled = False
     cache = False
@@ -39,7 +39,7 @@ plugin_pool.register_plugin(RecentNewsPlugin)
 
 class NewsCategoriesListPlugin(CMSPluginBase):
     model = CMSPlugin
-    name = u'News Categories List'
+    name = u'Research Categories List'
     render_template = "_news_categories_list_plugin.html"
     text_enabled = False
     cache = False
@@ -75,7 +75,7 @@ plugin_pool.register_plugin(NewsCategoriesListPlugin)
 
 class NewsArchivePlugin(CMSPluginBase):
     model = NewsArchivePluginModel
-    name = u'News Archive'
+    name = u'Research Archive'
     render_template = "_news_archive_plugin.html"
     text_enabled = False
 

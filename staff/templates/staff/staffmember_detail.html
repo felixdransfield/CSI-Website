@@ -21,18 +21,18 @@
     </div>
       <div class="divider"></div>
 
-       {% if staff.clippings.all %}
+       {% if staff.publications.all %}
       <div class="staff-detail">
       <h1>Publications</h1>
-      <ul class="clippings">{% for clipping in staff.clippings.all %}
+      <ul class="publications">{% for publication in staff.publications.all %}
         <li>
                <div class="downloadable">
-                       <a href="{{ clipping.get_absolute_url }}"/>
-                    <span class="pub-title">{{ clipping.title }}</span>
+                       <a href="{{ publication.get_absolute_url }}"/>
+                    <span class="pub-title">{{ publication.title }}</span>
                    <br>
-                    <span class="pub-source">{{ clipping.source }}</span></a>
+                    <span class="pub-source">{{ publication.source }}</span></a>
                     <br><br>
-                   <div class="meta">{{ clipping.get_type }}</div>
+                   <div class="meta">{{ publication.get_type }}</div>
                 </div>
 
             </li>

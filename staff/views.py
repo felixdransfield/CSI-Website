@@ -42,14 +42,14 @@ class StaffDetailView(DetailView):
             menu.add_break()
 
 
-            menu.add_modal_item('Attach New Clipping',
-                url="%s" % (reverse('admin:clippings_clipping_add'), )
+            menu.add_modal_item('Attach New Publication',
+                url="%s" % (reverse('admin:publications_publication_add'), )
             )
 
 
-            menu.add_modal_item('Attach New Clipping',
+            menu.add_modal_item('Attach New Publication',
                 url="%s?staff=%d" % (
-                    reverse('admin:clippings_clipping_add'),
+                    reverse('admin:publications_publication_add'),
                     self.object.id,
                 )
             )

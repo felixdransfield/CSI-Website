@@ -15,10 +15,10 @@ urlpatterns = i18n_patterns('',
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^select2/', include('django_select2.urls')),
     url(r'^about-lab/', include('staff.urls', namespace='staff')),
-    url(r'^publications/', include('clippings.urls', namespace='publications')),
+    url(r'^publications/', include('publications.urls', namespace='publications')),
     url(r'^research/', include('news.urls', namespace='news')),
-    url(r'^', include('participation.urls')),
     url(r'^', include('cms.urls')),
+    url(r'^', include('djangocms_forms.urls')),
 
 
 
