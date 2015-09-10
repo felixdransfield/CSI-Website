@@ -18,7 +18,6 @@ urlpatterns = i18n_patterns('',
     url(r'^publications/', include('publications.urls', namespace='publications')),
     url(r'^research/', include('news.urls', namespace='news')),
     url(r'^', include('cms.urls')),
-    url(r'^', include('djangocms_forms.urls')),
 
 
 

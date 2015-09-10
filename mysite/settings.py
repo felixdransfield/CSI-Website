@@ -156,7 +156,6 @@ INSTALLED_APPS = (
     'djangocms_picture',
     'djangocms_teaser',
     'djangocms_video',
-    'djangocms_forms',
     'reversion',
     'mysite',
     'staff',
@@ -166,10 +165,11 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'adminsortable',
     'easy_select2',
+    'form_designer',
+    'form_designer.contrib.cms_plugins.form_designer_form',
+
 )
 
-
-DJANGOCMS_FORMS_DEFAULT_TEMPLATE = 'djangocms_forms/form_template/default.html'
 
 
 
