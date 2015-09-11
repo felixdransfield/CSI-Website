@@ -5,7 +5,7 @@ from django.core.context_processors import csrf
 
 def publications(request):
 
-    return render(request, 'Publications.html',
+    return render(request, 'publications.html',
                   {'publications': Publication.objects.all,
 
                    })
