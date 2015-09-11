@@ -4,6 +4,7 @@ from django import forms
 from django.forms import widgets
 from django.conf import settings as django_settings
 from django.utils.translation import ugettext as _
+from phonenumber_field.formfields import PhoneNumberField
 
 from form_designer import settings
 from form_designer.models import FormDefinitionField, FormDefinition

@@ -167,11 +167,14 @@ INSTALLED_APPS = (
     'easy_select2',
     'form_designer',
     'form_designer.contrib.cms_plugins.form_designer_form',
+    'phonenumber_field',
 
 )
 
 
+PHONENUMBER_DEFAULT_REGION = 'region_GB'
 
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
 
 LANGUAGES = (
     ## Customize this

@@ -12,9 +12,9 @@ django-cms-named-menus==0.1.10
 django-easy-select2==1.3
 django-email-extras==0.3.1
 django-filer==0.9.12
-django-forms-builder==0.12.2
 django-ipware==1.1.1
 django-mptt==0.7.4
+django-phonenumber-field==0.7.2
 django-polymorphic==0.7.1
 django-reversion==1.8.5
 django-sekizai==0.8.2
@@ -48,6 +48,7 @@ jsonfield==1.0.3
 MySQL-python==1.2.5
 ndg-httpsclient==0.4.0
 paramiko==1.15.2
+phonenumbers==7.0.9
 Pillow==2.9.0
 psycopg2==2.6.1
 py-mysql2pgsql==0.1.5

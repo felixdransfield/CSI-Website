@@ -22,6 +22,7 @@ from form_designer.fields import TemplateTextField, TemplateCharField, ModelName
 from form_designer.utils import get_class
 from form_designer import settings
 
+
 if settings.VALUE_PICKLEFIELD:
     try:
         from picklefield.fields import PickledObjectField

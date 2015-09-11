@@ -4,11 +4,14 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.storage import get_storage_class
 
+
+
 STATIC_URL = os.path.join(getattr(settings, 'STATIC_URL', settings.MEDIA_URL), 'form_designer')
 
 FIELD_CLASSES = getattr(settings, 'FORM_DESIGNER_FIELD_CLASSES', (
     ('django.forms.CharField', _('Text')),
     ('django.forms.EmailField', _('E-mail address')),
+    ('django.forms.CharField', _('Phone Number')),
     ('django.forms.URLField', _('Web address')),
     ('django.forms.IntegerField', _('Number')),
     ('django.forms.DecimalField', _('Decimal number')),
@@ -54,7 +57,7 @@ CHOICE_MODEL_CHOICES = getattr(settings, 'FORM_DESIGNER_CHOICE_MODEL_CHOICES', N
 DEFAULT_FORM_TEMPLATE = getattr(settings, 'FORM_DESIGNER_DEFAULT_FORM_TEMPLATE', 'html/formdefinition/forms/as_p.html')
 
 # semicolon is Microsoft Excel default
-CSV_EXPORT_DELIMITER = getattr(settings, 'FORM_DESIGNER_CSV_EXPORT_DELIMITER', ';')
+CSV_EXPORT_DELIMITER = getattr(settings, 'FORM_DESIGNER_CSV_EXPORT_DELIMITER', ',')
 
 # include log timestamp in export
 CSV_EXPORT_INCLUDE_CREATED = getattr(settings, 'FORM_DESIGNER_CSV_EXPORT_INCLUDE_CREATED', True)
