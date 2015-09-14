@@ -3,6 +3,8 @@
 ----------------------------------------------------*/
 
 /*------------ MAIN DECLARATIONS -------------------*/
+
+
 body{
     font-family: sans-serif;
 }
@@ -42,16 +44,35 @@ h1, h2, h3, h4 {
     padding-top: 50px;
 }
 
+.header-left{
+    display: inline-block;
+}
+
 .site-title{
     color: #ffffff;
     font-size: 36px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
+
 }
 
 .breadcrumbs, .breadcrumbs a {
     color: #ffffff;
     font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.header-logo{
+    float: right;
+    width: 115px;
+    height: 75px;
+    display: inline block;
+}
+
+@media screen and (max-width: 670px){
+    .header-logo{
+        display: none;
+    }
 }
 /* Header Navigation */
 .header-menu{
@@ -93,6 +114,19 @@ h1, h2, h3, h4 {
   margin-left: 0 !important;
   }
 
+.secondary-menu{
+    border-bottom: 1px solid #efefef;
+}
+
+
+
+.secondary-menu ul{
+    margin-left: -15px;
+}
+
+.ancestor ul {
+    display: none;
+}
 
 
 /* Footer */
@@ -102,6 +136,11 @@ footer{
 }
 footer a{
     color: #ffffff;
+}
+
+.wrapper a:hover{
+    colour: red !important;
+    text-decoration: none;
 }
 
 #footer-menu-left, #footer-menu-right{
@@ -116,9 +155,19 @@ footer a{
      list-style-type: none;
 }
 
-#footer-menu-left .selected {
-    border-bottom: 1px solid #ffffff;
+@media screen and (max-width: 540px){
+    #footer-menu-left{
+        display: none;
+    }
 }
+
+#footer-menu-left .selected ul{
+    display: none;
+}
+footer a:hover{
+    color: #d3d3d3;
+}
+
 
 
 /*--------- PUBLICATIONS ------------*/
@@ -261,3 +310,4 @@ footer a{
         margin: 0;
     }
 }
+

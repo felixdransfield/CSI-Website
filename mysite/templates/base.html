@@ -18,10 +18,13 @@
         <header>
             <div class ="banner wrapper">
                 <div class="container">
-                    <div class="site-title">CSI labaratory</div>
-                    <div class ="breadcrumbs">
-                        <a href="http://www.kcl.ac.uk/ioppn/index.aspx">Institute of Psychiatry, Psychology &amp; Neuroscience</a> / <a href="http://www.kcl.ac.uk/ioppn/depts/ps/index.aspx">Department of Psychosis Studies</a>
+                    <div class="header-left">
+                        <div class="site-title">CSI labaratory</div>
+                        <div class ="breadcrumbs">
+                            <a href="http://www.kcl.ac.uk/ioppn/index.aspx">Institute of Psychiatry, Psychology &amp; Neuroscience</a> / <a href="http://www.kcl.ac.uk/ioppn/depts/ps/index.aspx">Department of Psychosis Studies</a>
+                        </div>
                     </div>
+                    <img class="header-logo" src="/static/header-logo.png"/>
                 </div>
             </div>
         </header>
@@ -41,12 +44,20 @@
                         <div class="container">
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                {% show_menu 0 100 0 1 "menu.html" %}
+                                {% show_menu 0 100 0 0 "menu.html" %}
                             </ul>
                         </div>
+
                         </div>
                     </div>
 
+            </div>
+            <div class="secondary-menu">
+                <div class="container">
+                <ul class="nav navbar-nav">
+                    {% show_menu 1 %}
+                </ul>
+                    </div>
             </div>
         </nav>
 
