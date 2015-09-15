@@ -29,9 +29,11 @@ def AlumniListView(request):
 
 
 
+
 class StaffDetailView(DetailView):
     model = StaffMember
     context_object_name = 'staff'
+
 
     def render_to_response(self, context, **response_kwargs):
         # Shim to affect the CMS Toolbar only

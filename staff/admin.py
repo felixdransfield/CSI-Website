@@ -16,21 +16,8 @@ class SeniorityAdmin(admin.ModelAdmin):
 admin.site.register(Seniority, SeniorityAdmin)
 
 
-class ClippingInline(SortableTabularInline):
-    extra = 1
-    form = select2_modelform(Publication, attrs={'width': '250px'})
-    model = Publication
-
-class NewsInline(SortableTabularInline):
-    extra = 1
-    form = select2_modelform(Publication, attrs={'width': '250px'})
-    model = NewsItem
-
-
-
 class StaffMemberAdmin(PlaceholderAdminMixin, SortableAdmin, admin.ModelAdmin):
 	form = select2_modelform(StaffMember, attrs={'width': '250px'})
-	inlines = [ ClippingInline, ]
 
 admin.site.register(StaffMember, StaffMemberAdmin)
 

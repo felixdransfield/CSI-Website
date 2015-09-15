@@ -7,14 +7,15 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('publications', '0008_auto_20150903_1058'),
+        ('staff', '0004_auto_20150901_1033'),
+        ('publications', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='publication',
-            name='file',
-            field=models.FileField(default=1, upload_to=b''),
+            name='staff',
+            field=models.ForeignKey(default=1, to='staff.StaffMember'),
             preserve_default=False,
         ),
     ]

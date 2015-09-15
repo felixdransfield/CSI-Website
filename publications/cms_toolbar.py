@@ -10,13 +10,13 @@ from cms.cms_toolbar import ADMIN_MENU_IDENTIFIER, ADMINISTRATION_BREAK
 
 
 @toolbar_pool.register
-class PublicationToolbar(CMSToolbar):
+class PublicationsToolbar(CMSToolbar):
 
     def populate(self):
         admin_menu = self.toolbar.get_or_create_menu(ADMIN_MENU_IDENTIFIER, _('Apps'))
 
         position = admin_menu.get_alphabetical_insert_position(
-            _('Publication ...'),
+            _('Publications'),
             SubMenu
         )
 
@@ -33,3 +33,5 @@ class PublicationToolbar(CMSToolbar):
 
         url = reverse('admin:publications_publication_add')
         menu.add_modal_item(_('Add New Publication'), url=url)
+
+

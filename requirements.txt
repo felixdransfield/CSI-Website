@@ -14,8 +14,8 @@ django-email-extras==0.3.1
 django-filer==0.9.12
 django-ipware==1.1.1
 django-mptt==0.7.4
-django-phonenumber-field==0.7.2
 django-polymorphic==0.7.1
+django-publications==0.6.1
 django-reversion==1.8.5
 django-sekizai==0.8.2
 Django-Select2==4.3.1

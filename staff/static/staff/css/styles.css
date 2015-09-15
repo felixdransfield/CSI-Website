@@ -81,12 +81,13 @@
 
 .staff-detail .publications li {
 	font-family: sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 1.3333em;
 	margin: 1em 0.5em 1em 0.5em;
 	border: 1px solid #efefef;
     padding: 10px;
     border-radius: 5px;
+        vertical-align: top;
 }
 
 .staff-detail .publications .meta {

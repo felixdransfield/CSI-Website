@@ -7,14 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('publications', '0007_auto_20150903_1047'),
+        ('publications', '0002_publication_staff'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='publication',
             name='staff',
-            field=models.ForeignKey(related_name='publications', default=None, to='staff.StaffMember', help_text='Required. To whom is this publication connected?'),
-            preserve_default=True,
+            field=models.ForeignKey(related_name='publications', to='staff.StaffMember'),
         ),
     ]
