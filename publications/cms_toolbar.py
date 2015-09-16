@@ -34,4 +34,7 @@ class PublicationsToolbar(CMSToolbar):
         url = reverse('admin:publications_publication_add')
         menu.add_modal_item(_('Add New Publication'), url=url)
 
+        url = reverse('admin:publications_publication_import_bibtex')
+        menu.add_modal_item(_('Import BibTex'), url=url)
+
 

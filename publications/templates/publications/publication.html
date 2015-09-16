@@ -24,10 +24,11 @@
 	ISBN {{ publication.isbn }}{% endif %}</i><br /><br>
 {% endif %}
 {% if publication.keywords %}
+Keywords:
 	{% for keyword, keyword_escaped in publication.keywords_escaped %}
 		<a class="keyword" href="/publications/tag/{{ keyword_escaped }}/">{{ keyword }}</a>
 	{% endfor %}
-	<br />
+	<br /><br>
 {% endif %}
 <div class="centered">
 {% if publication.code %}<a class="link" href="{{ publication.code }}">Code</a>,{% endif %}

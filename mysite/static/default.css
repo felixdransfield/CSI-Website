@@ -211,6 +211,25 @@ footer a:hover, a:active {
     text-decoration: underline;
 }
 
+.keyword-list a {
+    border: 1px solid #efefef;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 2px;
+    display: inline-block
+
+}
+
+/* -- responsive -- */
+@media screen and (max-width: 425px){
+    .publications {
+        margin-left: -40px;
+    }
+}
+
+
+
+
 /*--------- NEWS ------------*/
 
 /* - Categories -*/

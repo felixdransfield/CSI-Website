@@ -26,15 +26,75 @@
 		<h1>Publication</h1>
 		<hr/>
 		<div style="margin-bottom: 30px;">
-		{% include "publications/publication.html" %}<br/>
 
+            <h3>Staff Member</h3>
+            <div class="centered"><a href="/about-lab/people/{{ publication.staff.slug }}"><span class="pub-staff">{{ publication.staff }}</span></a></div>
+
+            <h3>Authors</h3>
+                {% if publication.authors_escaped|length > 8 %}
+                    {% for author, author_escaped in publication.authors_escaped|slice:":8" %}
+                        <span>{{ author }}</span>,
+                    {% endfor %} <i>et al.</i><br />
+                {% else %}
+                    {% for author, author_escaped in publication.authors_escaped %}
+                        <span>{{ author }}</span>{% if not forloop.last %}{% if forloop.revcounter == 2 %}{% if not forloop.first %},{% endif %} and {% else %}, {% endif %}{% endif %}
+                    {% endfor %}<br />
+                {% endif %}
+
+            <h3>Title</h3>
+                <b>{{ publication.title }}</b><br/>
+
+
+            <h3>Journal</h3>
+                {% if publication.journal %}
+	                <i>{{ publication.journal }}{% if publication.note %} ({{ publication.note }}){% endif %},
+                    {% if publication.volume %}<b>{{ publication.volume }}</b>{% if publication.number %}({{ publication.number }}){% endif %},{% endif %}
+                    {% if publication.pages %}{{ publication.pages }},{% endif %}
+                    {{ publication.year }}
+	                </i><br /><br>
+                {% else %}
+	                <i>{% if publication.book_title %}{{ publication.book_title }}{% if publication.note %} ({{ publication.note }}){% endif %},{% endif %}
+	                {% if publication.publisher %}{{ publication.publisher }},{% endif %}
+	                {% if publication.institution %}{{ publication.institution }},{% endif %}
+                        {{ publication.year }}{% if publication.isbn %},
+	                    ISBN {{ publication.isbn }}{% endif %}</i><br /><br>
+                {% endif %}
+
+            {% if publication.keywords %}
+                <h3>Keywords</h3>
+	                {% for keyword, keyword_escaped in publication.keywords_escaped %}
+		            <a class="keyword" href="/publications/tag/{{ keyword_escaped }}/">{{ keyword }}</a>
+	                {% endfor %}
+            {% endif %}
+
+
+
+
+            <h3>Links</h3>
+            {% if publication.code %}<a class="link" href="{{ publication.code }}">Code</a>,{% endif %}
+            {% if publication.url %}<a class="link" rel="external" href="{{ publication.url }}">URL</a>,{% endif %}
+            {% if publication.doi %}<a class="link" rel="external" href="http://dx.doi.org/{{ publication.doi }}">DOI</a>,{% endif %}
+            {% if not publication.journal and publication.isbn %}<a class="link" rel="external" href="http://isbndb.com/search/all?query={{ publication.isbn }}">ISBN</a>,{% endif %}
+            {% if publication.pdf %}<a class="link" href="{{ MEDIA_URL }}{{ publication.pdf }}">PDF</a>,{% endif %}
+            {% for file in publication.files %}
+                <a class="link" href="{{ MEDIA_URL }}{{ file.file }}">{{ file.description }}</a>,
+
+            {% endfor %}
+            {% for link in publication.links %}
+                <a class="link" rel="external" href="{{ link.url }}">{{ link.description }}</a>,
+            {% endfor %}
+            <a href="/publications/{{ publication.pk }}/?ris">RIS</a>,
+            <a href="/publications/{{ publication.pk }}/?bibtex">BibTex</a>
+            <abbr class="unapi-id" title="{{ publication.id }}"></abbr>
+            <span class="Z3988" title="{{ publication.z3988 }}"></span>
             {% if publication.abstract %}
-            <p>Abstract</p>
+            <h3>Abstract</h3>
             {{ publication.abstract }}
             {% endif %}
 		</div>
 		<h1>Reference</h1>
 		<hr/>
 		<pre lang="bibtex">{% include "publications/publication.bib" %}</pre>
+        <br><br>
 	{% endfor %}
 {% endblock %}

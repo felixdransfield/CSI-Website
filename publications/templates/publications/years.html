@@ -7,7 +7,24 @@
 {% endblock %}
 
 {% block content %}
+<h1>Kewords</h1>
+<hr />
+<div class="keyword-list">
+{% for year, publications in years %}
+    {% for publication in publications %}
+    {% if publication.keywords %}
+    {% for keyword, keyword_escaped in publication.keywords_escaped %}
+        <a class="keyword" href="/publications/tag/{{ keyword_escaped }}/">{{ keyword }}</a>
+    {% endfor %}
+    {% endif %}
 
+
+    {% endfor %}
+{% endfor %}
+
+
+
+    </div>
 	{% for year, publications in years %}
 		<a href="/publications/year/{{ year }}/"><h1>{{ year }}</h1></a><hr/>
 		<div class="staff-detail">
@@ -22,5 +39,6 @@
             </ul>
         </div>
     {% endfor %}
+<br><br>
 {% endblock %}
 
