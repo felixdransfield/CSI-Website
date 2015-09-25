@@ -32,13 +32,12 @@ class PublicationAdmin(admin.ModelAdmin):
 		(None, {'fields':
 			('journal', 'book_title', 'publisher', 'institution', 'volume', 'number', 'pages')}),
 		(None, {'fields':
-			('keywords', 'url', 'pdf', 'doi', 'isbn',)}),
+			('keywords', 'url', 'pdf',)}),
 		(None, {'fields':
 			('abstract',)}),
 		(None, {'fields':
 			('image', 'thumbnail')}),
-		(None, {'fields':
-			('lists',)}),
+
 	)
 	inlines = [CustomLinkInline, CustomFileInline]
 
