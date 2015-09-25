@@ -32,7 +32,7 @@ class PublicationAdmin(admin.ModelAdmin):
 		(None, {'fields':
 			('journal', 'book_title', 'publisher', 'institution', 'volume', 'number', 'pages')}),
 		(None, {'fields':
-			('citekey', 'keywords', 'url', 'code', 'pdf', 'doi', 'isbn', 'note', 'external')}),
+			('keywords', 'url', 'pdf', 'doi', 'isbn',)}),
 		(None, {'fields':
 			('abstract',)}),
 		(None, {'fields':
